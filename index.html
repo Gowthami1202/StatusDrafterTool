@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Status Drafter Tool</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h2>Status Drafter Tool</h2>
+
+    <!-- Topic select dropdown -->
+    <p>Select a topic:</p>
+    <select id="topicSelect">
+        <option value="">--Select--</option>
+        <option value="Motivation">Motivation</option>
+        <option value="Love">Love</option>
+        <option value="Friendship">Friendship</option>
+    </select>
+    <br><br>
+    
+    <!-- Generate Status button -->
+    <button onclick="generateStatus()">Generate Status</button>
+    
+    <!-- Result display -->
+    <h3 id="result"></h3>
+
+    <br><br>
+    <!-- About Project link -->
+    <a href="about.html">About Project</a>
+
+<script>
+function generateStatus() {
+    const select = document.getElementById("topicSelect");
+    const topic = select.value;
+
+    let result = "";
+
+    const motivation = ["Believe in yourself!", "Never give up!", "Success is coming!"];
+    const love = ["Love makes life beautiful.", "True love never fails."];
+    const friendship = ["Friends are forever.", "Friendship is a gift."];
+
+    if(topic === "Motivation") {
+        result = motivation[Math.floor(Math.random() * motivation.length)];
+    } else if(topic === "Love") {
+        result = love[Math.floor(Math.random() * love.length)];
+    } else if(topic === "Friendship") {
+        result = friendship[Math.floor(Math.random() * friendship.length)];
+    } else {
+        result = "Please select a topic!";
+    }
+
+    document.getElementById("result").innerText = result;
+}
+</script>
+
+</body>
+</html>
